@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Calculator by Santi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script>
+        function insertAtCursor(value) {
+            var display = document.getElementById("display");
+            var startPos = display.selectionStart;
+            var endPos = display.selectionEnd;
+            display.value = display.value.slice(0, startPos) + value + display.value.slice(endPos);
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="calculator">
+        <form>
+            <div class="display">
+                <input type="text" id="display" name="display">
+            </div>
+            <div>
+                <input type="button" value="AC" onclick="display.value = ''">
+                <input type="button" value="DE" onclick="display.value = display.value.toString().slice(0, -1)">
+                <input type="button" value="." onclick="insertAtCursor('.')">
+                <input type="button" value="/" onclick="insertAtCursor('/')">
+            </div>
+            <div>
+                <input type="button" value="7" onclick="insertAtCursor('7')">
+                <input type="button" value="8" onclick="insertAtCursor('8')">
+                <input type="button" value="9" onclick="insertAtCursor('9')">
+                <input type="button" value="*" onclick="insertAtCursor('*')">
+            </div>
+            <div>
+                <input type="button" value="4" onclick="insertAtCursor('4')">
+                <input type="button" value="5" onclick="insertAtCursor('5')">
+                <input type="button" value="6" onclick="insertAtCursor('6')">
+                <input type="button" value="-" onclick="insertAtCursor('-')">
+            </div>
+            <div>
+                <input type="button" value="1" onclick="insertAtCursor('1')">
+                <input type="button" value="2" onclick="insertAtCursor('2')">
+                <input type="button" value="3" onclick="insertAtCursor('3')">
+                <input type="button" value="+" onclick="insertAtCursor('+')">
+            </div>
+            <div>
+                <input type="button" value="00" onclick="insertAtCursor('00')">
+                <input type="button" value="0" onclick="insertAtCursor('0')">
+                <input type="button" value="=" onclick="display.value = eval(display.value)" class="equal">
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
